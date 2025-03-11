@@ -48,23 +48,4 @@ export default class WeatherForecast extends Vue {
         })
     }
   }
-
-  // created() {
-  //   // TODO - use the result data and show the result properly
-  //   // TODO - show the error message properly
-  //   this.$watch(
-  //     "selectedPlace",
-  //     () => {
-  //       this.weatherService
-  //         .getWeatherForecast(this.selectedPlace.lat, this.selectedPlace.lng)
-  //         .then((res) => {
-  //           console.log(res);
-  //         })
-  //         .catch((err: ErrorModel) => {
-  //           console.log(err);
-  //         });
-  //     },
-  //     { deep: true, immediate: true }
-  //   );
-  // }
 }

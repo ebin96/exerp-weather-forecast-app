@@ -2,7 +2,7 @@
   <div class="hello">
     <h3>Weather forecast for city</h3>
 
-    TODO - show forecast data here<br>
+    TODO - Improve the display of forecast data here <br>
     {{ forecastData }}
     
   </div>
