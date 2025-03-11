@@ -2,7 +2,8 @@
   <div class="hello">
     <h3>Weather forecast for city</h3>
 
-    TODO
+    TODO - show forecast data here<br>
+    {{ forecastData }}
     
   </div>
 </template>

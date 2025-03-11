@@ -8,4 +8,12 @@ import WeatherForecast from '@/components/WeatherForecast.vue';
     WeatherForecast,
   },
 })
-export default class HomeView extends Vue {}
+export default class HomeView extends Vue {
+  selectedPlace: { lat: number; lng: number } | null = null;
+  placeChanged(data: { lat: number; lng: number }) {
+    this.selectedPlace = {
+      lat: data.lat,
+      lng: data.lng,
+    };
+  }
+}

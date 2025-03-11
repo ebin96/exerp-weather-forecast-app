@@ -1,26 +1,70 @@
-import WeatherService from '@/services/weather-service.service';
-import { Options, Vue } from 'vue-class-component';
-import { Inject } from 'vue-property-decorator';
+import WeatherService from "@/services/weather-service.service";
+import { ErrorModel } from "@/shared/backend-api";
+import { Options, Vue } from "vue-class-component";
+import { Inject, Watch } from "vue-property-decorator";
+
+export interface ForecastModel {
+  latitude: number;
+  longitude: number;
+  elevation: number;
+  current_weather: {
+    temperature: number;
+    windspeed: number;
+    winddirection: number;
+    weathercode: number;
+    time: Date;
+  };
+
+  current_weather_units: {
+    time: string;
+    temperature: string;
+    windspeed: string;
+    winddirection: string;
+    weathercode: string;
+  };
+}
 
 @Options({
   props: {
-  }
+    selectedPlace: Object as () => { lat: number; lng: number },
+  },
 })
 export default class WeatherForecast extends Vue {
-
-  @Inject('weatherService')
+  @Inject("weatherService")
   public weatherService!: WeatherService;
 
-   
-  mounted() {
-    // TODO - use the latitude and longitude from the search city component
-    // TODO - display the weather forecast in the template
-    // TODO - Error handling, if the API call fails we should display an error message
-    this.weatherService.getWeatherForecast(52.52, 13.419998).then((res) => {
-      console.log(res);
-    });
+  selectedPlace!: { lat: number; lng: number };
+
+  error: ErrorModel | null = null;
+  forecastData: ForecastModel | null = null;
+
+  @Watch('selectedPlace', { deep: true, immediate: true })
+  async onSelectedPlaceChanged() {
+    if (this.selectedPlace && this.selectedPlace.lat && this.selectedPlace.lng) {
+        this.weatherService.getWeatherForecast(this.selectedPlace.lat, this.selectedPlace.lng).then((res) => {
+          this.forecastData = res
+        }).catch((err: ErrorModel) => {
+          this.error = err
+        })
+    }
   }
 
+  // created() {
+  //   // TODO - use the result data and show the result properly
+  //   // TODO - show the error message properly
+  //   this.$watch(
+  //     "selectedPlace",
+  //     () => {
+  //       this.weatherService
+  //         .getWeatherForecast(this.selectedPlace.lat, this.selectedPlace.lng)
+  //         .then((res) => {
+  //           console.log(res);
+  //         })
+  //         .catch((err: ErrorModel) => {
+  //           console.log(err);
+  //         });
+  //     },
+  //     { deep: true, immediate: true }
+  //   );
+  // }
 }
-
-
