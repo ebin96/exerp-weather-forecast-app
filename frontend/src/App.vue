@@ -1,13 +1,26 @@
 <template>
   <div class="app-content" :class="{ dark: darkMode }">
     <nav class="flex justify-between items-center">
-      <div class="flex-1 text-center">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
+      <div class="flex items-center">
+        <span class="text-xl font-bold">Exerp Weather</span>
+        <i class="fa fa-cloud-sun text-xl ml-2"></i>
       </div>
-      <button @click="toggleDarkMode" class="text-xl">
-        <i :class="darkMode ? 'fa fa-sun' : 'fa fa-moon'"></i>
-      </button>
+
+      <div class="flex items-center space-x-4">
+        <router-link to="/" class="text-xl" title="Home">
+          <i class="fa fa-home"></i>
+        </router-link>
+        <router-link to="/about" class="text-xl" title="About">
+          <i class="fa fa-info-circle"></i>
+        </router-link>
+        <button
+          @click="toggleDarkMode"
+          class="text-xl"
+          title="Toggle Dark Mode"
+        >
+          <i :class="darkMode ? 'fa fa-sun' : 'fa fa-moon'"></i>
+        </button>
+      </div>
     </nav>
     <router-view />
   </div>
