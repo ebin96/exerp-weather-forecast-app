@@ -5,7 +5,9 @@
     aria-live="polite"
   >
     <header class="weather-title">
-      <h3>{{ locationName || "No Location Selected" }}</h3>
+      <h3 data-test-id="location-name-display">
+        {{ locationName || "No Location Selected" }}
+      </h3>
     </header>
 
     <div class="weather-info">

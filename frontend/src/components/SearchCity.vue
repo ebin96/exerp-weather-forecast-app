@@ -4,13 +4,14 @@
     <GMapAutocomplete
       @place_changed="placeChanged"
       class="gmap-autocomplete"
+      data-test-id="location-input"
       :class="{ 'location-error': isLocationValid() }"
     />
 
     <!-- Error message displayed if location is invalid -->
     <h5
       v-if="isLocationValid()"
-      class="text-red-500 text-left mb-3"
+      class="text-red-500 text-left mb-3 location-error-message"
       role="alert"
       aria-live="assertive"
     >

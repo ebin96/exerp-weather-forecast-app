@@ -12,6 +12,7 @@
           class="text-xl"
           title="Home"
           aria-label="Go to Home"
+          data-test-id="home-button"
         >
           <i class="fa fa-home"></i>
         </router-link>
@@ -20,6 +21,7 @@
           class="text-xl"
           title="About"
           aria-label="Learn more about Exerp Weather"
+          data-test-id="about-button"
         >
           <i class="fa fa-info-circle"></i>
         </router-link>
@@ -29,6 +31,7 @@
           title="Toggle Dark Mode"
           aria-label="Toggle Dark Mode"
           aria-pressed="false"
+          data-test-id="dark-mode-button"
         >
           <i
             :class="darkMode ? 'fa fa-sun' : 'fa fa-moon'"
