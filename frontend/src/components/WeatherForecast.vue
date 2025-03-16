@@ -60,6 +60,10 @@
           <span v-else-if="forecastData?.current_weather?.weathercode === 2"
             >Partly cloudy</span
           >
+
+          <span v-else-if="forecastData?.current_weather?.weathercode === 3"
+            >Rainy</span
+          >
           <span v-else>No Data</span>
         </p>
       </div>
