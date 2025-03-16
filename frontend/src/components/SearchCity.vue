@@ -1,12 +1,8 @@
 <template>
   <div>
-    <h3>Type a city name to search</h3>
+    <h3>Enter a city name or click on the map to view the weather forecast.</h3>
     <GMapAutocomplete @place_changed="placeChanged" class="gmap-autocomplete" />
 
-    <div>
-      You can also click a location on the map to view the weather forecast
-    </div>
-    <!-- TODO add click event -->
     <GMapMap
       class="gmap-class"
       :center="selectedPlace || { lat: 0, lng: 0 }"
