@@ -2,6 +2,9 @@
   <div class="search-city">
     <h3>Enter a city name or click on the map to view the weather forecast.</h3>
     <GMapAutocomplete @place_changed="placeChanged" class="gmap-autocomplete" />
+    <h5 v-if="validationError" class="text-red-500 text-left mb-3">
+      {{ validationError }}
+    </h5>
 
     <GMapMap
       class="gmap-class"
