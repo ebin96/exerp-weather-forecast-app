@@ -1,6 +1,10 @@
 <template>
   <div class="weather-container" :class="weatherBackgroundClass()">
-    <h3 class="weather-title">Weather Forecast</h3>
+    <h3 class="weather-title">
+      <h3 class="weather-title">
+        {{ locationName || "No Location Selected" }}
+      </h3>
+    </h3>
 
     <div class="weather-info">
       <div class="weather-detail">

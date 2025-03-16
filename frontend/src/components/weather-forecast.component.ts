@@ -27,6 +27,7 @@ export interface ForecastModel {
 @Options({
   props: {
     selectedPlace: Object as () => { lat: number; lng: number },
+    locationName: String,
   },
 })
 export default class WeatherForecast extends Vue {
@@ -34,6 +35,7 @@ export default class WeatherForecast extends Vue {
   public weatherService!: WeatherService;
 
   selectedPlace!: { lat: number; lng: number };
+  locationName!: string;
 
   error: ErrorModel | null = null;
   forecastData: ForecastModel | null = null;
