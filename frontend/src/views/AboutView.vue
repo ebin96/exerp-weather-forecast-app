@@ -1,130 +1,57 @@
 <template>
   <div class="about">
-    <h2>Exerp Weather</h2>
-    <p>
+    <h2 class="text-center text-2xl text-highlight-blue mb-6">Exerp Weather</h2>
+    <p class="text-base text-gray-700 leading-6 mb-6">
       Welcome to the most accurate and user-friendly weather forecasting app!
       Whether you're planning a trip or just curious about the weather, we
       provide real-time data to keep you informed.
     </p>
 
-    <div class="current-weather">
-      <h3>What do we provide?</h3>
-      <ul>
-        <li>
-          <strong>Temperature:</strong> The current temperature at your
-          location.
+    <div class="current-weather mt-6">
+      <h3 class="text-gray-600">What do we provide?</h3>
+      <ul class="list-none pl-0">
+        <li class="text-base text-gray-700 mb-3">
+          <strong class="text-highlight-blue">Temperature:</strong> The current
+          temperature at your location.
         </li>
-        <li><strong>Wind Speed:</strong> Real-time wind speed updates.</li>
-        <li>
-          <strong>Wind Direction:</strong> Wind direction for better weather
-          insights.
+        <li class="text-base text-gray-700 mb-3">
+          <strong class="text-highlight-blue">Wind Speed:</strong> Real-time
+          wind speed updates.
         </li>
-        <li>
-          <strong>Weather Condition:</strong> Real-time weather updates (e.g.,
-          Clear Sky, Rain, etc.).
+        <li class="text-base text-gray-700 mb-3">
+          <strong class="text-highlight-blue">Wind Direction:</strong> Wind
+          direction for better weather insights.
+        </li>
+        <li class="text-base text-gray-700 mb-3">
+          <strong class="text-highlight-blue">Weather Condition:</strong>
+          Real-time weather updates (e.g., Clear Sky, Rain, etc.).
         </li>
       </ul>
     </div>
 
-    <div class="additional-info">
-      <h3>Why Choose Us?</h3>
-      <p>
+    <div class="additional-info mt-4">
+      <h3 class="text-gray-600">Why Choose Us?</h3>
+      <p class="text-base text-gray-700 leading-6 mb-6">
         Our app pulls data from reliable sources to ensure the accuracy and
         timeliness of every forecast. Stay updated with the best weather
         information!
       </p>
     </div>
 
-    <div class="footer">
+    <div class="footer mt-10 text-center text-sm text-gray-500">
       <p>Created with ❤️ by Ebin</p>
     </div>
   </div>
 </template>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
-
 .about {
-  padding: 80px;
-  background-color: #e3eaf2;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
-  margin: 20px auto;
-  font-family: "Roboto", sans-serif;
-  color: #333;
-}
-
-h2 {
-  font-size: 26px;
-  color: #4682b4;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-h3 {
-  color: #555;
-}
-
-p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.current-weather {
-  margin-top: 20px;
-}
-
-.current-weather ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.current-weather li {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 12px;
-}
-
-.current-weather strong {
-  color: #4682b4;
-}
-
-.additional-info {
-  margin-top: 20px;
-}
-
-.additional-info p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-}
-
-.footer {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 14px;
-  color: #777;
-}
-
-.footer p {
-  margin: 5px 0;
+  @apply px-20 py-16 bg-blue-100 rounded-xl shadow-lg max-w-2xl mx-auto text-gray-800;
 }
 
 @media (max-width: 600px) {
   .about {
-    padding: 20px;
-  }
-
-  h2 {
-    font-size: 22px;
-  }
-
-  p,
-  .current-weather li {
-    font-size: 14px;
+    @apply px-4 py-5;
   }
 }
 </style>

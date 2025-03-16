@@ -72,71 +72,57 @@
 
 <style scoped>
 .weather-container {
-  margin: 10px auto;
-  padding: 20px;
-  border-radius: 12px;
-  background-color: #f4f7f6;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background 1s ease-in-out;
+  @apply mx-auto my-4 p-6 rounded-xl bg-pale-gray shadow-md transition-all duration-1000 ease-in-out;
 }
 
 .default {
-  background: linear-gradient(to bottom, #b3cde0, #6497b1);
+  @apply bg-gradient-to-b from-blue-200 to-blue-500;
 }
 
 .clear {
-  background: url("/src/assets/clear-sky.jpg") no-repeat center center/cover;
+  @apply bg-cover bg-center;
+  background-image: url("/src/assets/clear-sky.jpg");
 }
 
 .cloudy {
-  background: url("/src/assets/cloudy.jpg") no-repeat center center/cover;
+  @apply bg-cover bg-center;
+  background-image: url("/src/assets/cloudy.jpg");
 }
 
 .rainy {
-  background: url("/src/assets/rainy.jpg") no-repeat center center/cover;
+  @apply bg-cover bg-center;
+  background-image: url("/src/assets/rainy.jpg");
 }
 
 .weather-title {
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: bold;
+  @apply text-2xl text-center mb-5 font-bold;
 }
 
 .weather-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 20px;
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5;
 }
 
 .weather-detail {
-  background: linear-gradient(to right, #f5f5dc, #d9d9b3);
-
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  @apply bg-gradient-to-r from-beige-100 to-beige-200 p-4 rounded-xl shadow-sm;
 }
 
 .weather-detail h4 {
-  margin-bottom: 8px;
-  font-size: 16px;
-  color: #333;
+  @apply mb-2 text-lg text-gray-700;
 }
 
 .weather-detail p {
-  font-size: 14px;
-  color: #666;
+  @apply text-sm text-gray-500;
 }
 
 @media (max-width: 860px) {
   .weather-info {
-    grid-template-columns: 1fr 1fr 1fr;
+    @apply grid-cols-3;
   }
 }
 
 @media (max-width: 600px) {
   .weather-info {
-    grid-template-columns: 1fr 1fr;
+    @apply grid-cols-2;
   }
 }
 </style>

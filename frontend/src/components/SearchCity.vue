@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="search-city">
     <h3>Enter a city name or click on the map to view the weather forecast.</h3>
     <GMapAutocomplete @place_changed="placeChanged" class="gmap-autocomplete" />
 
@@ -16,52 +16,43 @@
 
 <script lang="ts" src="./search-city.component.ts"></script>
 
-<style>
+<style scoped>
+.search-city {
+  @apply text-center transition-all duration-1000 ease-in-out;
+}
 .gmap-class {
-  height: 500px;
-  width: 100%;
+  @apply h-128 w-full;
 }
+
 .gmap-autocomplete {
-  width: 250px;
-  margin: 10px auto;
+  @apply w-64 mx-auto my-4;
 }
-h3 {
-  margin: 40px 0 0;
-}
+
 ul {
-  list-style-type: none;
-  padding: 0;
+  @apply list-none p-0;
 }
+
 li {
-  display: inline-block;
-  margin: 0 10px;
+  @apply inline-block mx-2;
 }
+
 a {
-  color: #42b983;
+  @apply text-highlight-blue;
 }
+
 .vue-map-container {
-  height: 500px;
-  width: 100%;
+  @apply h-128 w-full;
 }
 
 .pac-logo:after {
-  display: none;
+  @apply hidden;
 }
 
 .hdpi.pac-logo:after {
-  background-image: none;
+  @apply bg-none;
 }
 
 .pac-item {
-  cursor: default;
-  padding: 0 4px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  line-height: 40px;
-  text-align: left;
-  border-top: 1px solid #e6e6e6;
-  font-size: 11px;
-  color: #515151;
+  @apply cursor-default px-1 text-ellipsis overflow-hidden whitespace-nowrap leading-10 text-left border-t border-gray-300 text-sm text-medium-gray;
 }
 </style>
