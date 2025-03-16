@@ -1,4 +1,4 @@
-import { Options, Vue } from "vue-class-component";
+import { Vue } from "vue-class-component";
 import LocationService from "@/services/get-location-service.service";
 import { Inject } from "vue-property-decorator";
 
@@ -17,12 +17,6 @@ interface LatLng {
   lng: number;
 }
 
-@Options({
-  validationError: {
-    type: String,
-    default: "",
-  },
-})
 export default class SearchCity extends Vue {
   @Inject("locationService")
   public locationService!: LocationService;
@@ -35,22 +29,20 @@ export default class SearchCity extends Vue {
       const res = await this.locationService.getLocationInfo(lat, lng);
       let locationName = "";
 
-      // Check if country is "Unknown"
       if (res.country === "Unknown") {
-        locationName = res.place; // If country is unknown, emit place
+        locationName = res.place;
       } else if (res.place === "Unknown") {
-        locationName = ""; // If place is unknown, emit empty string
+        locationName = "";
       } else {
-        locationName = `${res.place}, ${res.country}`; // Else emit place and country
+        locationName = `${res.place}, ${res.country}`;
       }
 
-      // Emit the location name
       this.$emit("updateLocationName", locationName);
     }
   }
 
   placeChanged(place: Place): void {
-    if (place.formatted_address && place.geometry) {
+    if (place?.formatted_address && place?.geometry) {
       this.selectedPlace = {
         lat: place.geometry.location.lat(),
         lng: place.geometry.location.lng(),
@@ -75,7 +67,7 @@ export default class SearchCity extends Vue {
     this.getLocationInfo(lat, lng);
   }
 
-  isLocationValid() {
+  isLocationValid(): boolean {
     return this.validationError !== "";
   }
 }

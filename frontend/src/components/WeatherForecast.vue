@@ -56,16 +56,9 @@
       <div class="weather-detail">
         <h4>Current Weather</h4>
         <p>
-          <span v-if="forecastData?.current_weather?.weathercode === 1"
-            >Clear sky</span
-          >
-          <span v-else-if="forecastData?.current_weather?.weathercode === 2"
-            >Partly cloudy</span
-          >
-          <span v-else-if="forecastData?.current_weather?.weathercode === 3"
-            >Rainy</span
-          >
-          <span v-else>No Data</span>
+          <span>{{
+            getWeatherDescription(forecastData?.current_weather?.weathercode)
+          }}</span>
         </p>
       </div>
 
@@ -101,6 +94,11 @@
 .rainy {
   @apply bg-cover bg-center;
   background-image: url("/src/assets/rainy.jpg");
+}
+
+.snow {
+  @apply bg-cover bg-center;
+  background-image: url("/src/assets/snow.jpg");
 }
 
 .weather-title {
