@@ -6,4 +6,44 @@
   .gmap-autocomplete {
     @apply w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300;
   }
+
+  .app-content {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    padding: 50px;
+    background: aliceblue;
+
+    nav {
+      padding: 30px;
+    }
+
+    nav a {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    nav a.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+
+  .app-content.dark {
+    background: #28282b;
+    color: white;
+
+    nav a {
+      color: white;
+    }
+
+    nav a.router-link-exact-active {
+      color: #42b983;
+    }
+
+    .gmap-autocomplete {
+      background: #343434;
+    }
+  }
 }
