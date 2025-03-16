@@ -20,6 +20,7 @@ interface LatLng {
 @Options({
   validationError: {
     type: String,
+    default: "",
   },
 })
 export default class SearchCity extends Vue {
@@ -27,7 +28,7 @@ export default class SearchCity extends Vue {
   public locationService!: LocationService;
 
   selectedPlace: LatLng | null = null;
-  validationError: string | null = null;
+  validationError: string | null = "";
 
   async getLocationInfo(lat: number, lng: number) {
     if (lat && lng) {
@@ -66,10 +67,15 @@ export default class SearchCity extends Vue {
   handleMapClick(event: {
     latLng: { lat: () => number; lng: () => number };
   }): void {
+    this.validationError = "";
     const lat = event.latLng.lat();
     const lng = event.latLng.lng();
     this.selectedPlace = { lat, lng };
     this.$emit("placeChanged", this.selectedPlace);
     this.getLocationInfo(lat, lng);
+  }
+
+  isLocationValid() {
+    return this.validationError !== "";
   }
 }

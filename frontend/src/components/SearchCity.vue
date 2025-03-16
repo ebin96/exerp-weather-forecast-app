@@ -1,8 +1,12 @@
 <template>
   <div class="search-city">
     <h3>Enter a city name or click on the map to view the weather forecast.</h3>
-    <GMapAutocomplete @place_changed="placeChanged" class="gmap-autocomplete" />
-    <h5 v-if="validationError" class="text-red-500 text-left mb-3">
+    <GMapAutocomplete
+      @place_changed="placeChanged"
+      class="gmap-autocomplete"
+      :class="{ 'location-error': isLocationValid() }"
+    />
+    <h5 v-if="isLocationValid()" class="text-red-500 text-left mb-3">
       {{ validationError }}
     </h5>
 
@@ -29,6 +33,10 @@
 
 .gmap-autocomplete {
   @apply w-64 mx-auto my-4;
+}
+
+.location-error {
+  @apply border-red-500 focus:ring-red-400 focus:border-red-500 !important;
 }
 
 ul {
