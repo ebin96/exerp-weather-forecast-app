@@ -50,7 +50,7 @@
     }
 
     .about p,
-    .about .current-weather li,
+    .about .content-details li,
     .about .additional-info p,
     .about h3 {
       @apply text-white;

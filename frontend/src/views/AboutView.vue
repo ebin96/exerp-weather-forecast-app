@@ -1,14 +1,24 @@
 <template>
-  <div class="about">
-    <h2 class="text-center text-2xl text-highlight-blue mb-6">Exerp Weather</h2>
+  <div class="about" role="contentinfo" aria-labelledby="about-heading">
+    <h2
+      id="about-heading"
+      class="text-center text-2xl text-highlight-blue mb-6"
+    >
+      Exerp Weather
+    </h2>
     <p class="text-base text-gray-700 leading-6 mb-6">
       Welcome to the most accurate and user-friendly weather forecasting app!
       Whether you're planning a trip or just curious about the weather, we
       provide real-time data to keep you informed.
     </p>
 
-    <div class="current-weather mt-6">
-      <h3 class="text-gray-600">What do we provide?</h3>
+    <section
+      class="content-details mt-6"
+      aria-labelledby="content-details-heading"
+    >
+      <h3 id="content-details-heading" class="text-gray-600">
+        What do we provide?
+      </h3>
       <ul class="list-none pl-0">
         <li class="text-base text-gray-700 mb-3">
           <strong class="text-highlight-blue">Temperature:</strong> The current
@@ -27,20 +37,26 @@
           Real-time weather updates (e.g., Clear Sky, Rain, etc.).
         </li>
       </ul>
-    </div>
+    </section>
 
-    <div class="additional-info mt-4">
-      <h3 class="text-gray-600">Why Choose Us?</h3>
+    <section
+      class="additional-info mt-4"
+      aria-labelledby="why-choose-us-heading"
+    >
+      <h3 id="why-choose-us-heading" class="text-gray-600">Why Choose Us?</h3>
       <p class="text-base text-gray-700 leading-6 mb-6">
         Our app pulls data from reliable sources to ensure the accuracy and
         timeliness of every forecast. Stay updated with the best weather
         information!
       </p>
-    </div>
+    </section>
 
-    <div class="footer mt-10 text-center text-sm text-gray-500">
+    <footer
+      class="footer mt-10 text-center text-sm text-gray-500"
+      role="contentinfo"
+    >
       <p>Created with ❤️ by Ebin</p>
-    </div>
+    </footer>
   </div>
 </template>
 

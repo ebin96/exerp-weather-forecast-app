@@ -5,8 +5,16 @@
       @place_changed="placeChanged"
       class="gmap-autocomplete"
       :class="{ 'location-error': isLocationValid() }"
+      aria-label="Search for a city or location"
     />
-    <h5 v-if="isLocationValid()" class="text-red-500 text-left mb-3">
+
+    <!-- Error message displayed if location is invalid -->
+    <h5
+      v-if="isLocationValid()"
+      class="text-red-500 text-left mb-3"
+      role="alert"
+      aria-live="assertive"
+    >
       {{ validationError }}
     </h5>
 
@@ -17,7 +25,13 @@
       map-type-id="roadmap"
       ref="gmap"
       @click="handleMapClick($event)"
-    ></GMapMap>
+      role="region"
+      aria-labelledby="map-label"
+    >
+      <div id="map-label" class="sr-only">
+        Interactive map to select a city for weather forecast.
+      </div>
+    </GMapMap>
   </div>
 </template>
 
@@ -27,6 +41,7 @@
 .search-city {
   @apply text-center transition-all duration-1000 ease-in-out;
 }
+
 .gmap-class {
   @apply h-128 w-full;
 }
@@ -65,5 +80,18 @@ a {
 
 .pac-item {
   @apply cursor-default px-1 text-ellipsis overflow-hidden whitespace-nowrap leading-10 text-left border-t border-gray-300 text-sm text-medium-gray;
+}
+
+/* Hide the map label visually but keep it accessible to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  overflow: hidden;
 }
 </style>

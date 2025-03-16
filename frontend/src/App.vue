@@ -7,18 +7,33 @@
       </div>
 
       <div class="flex items-center space-x-4">
-        <router-link to="/" class="text-xl" title="Home">
+        <router-link
+          to="/"
+          class="text-xl"
+          title="Home"
+          aria-label="Go to Home"
+        >
           <i class="fa fa-home"></i>
         </router-link>
-        <router-link to="/about" class="text-xl" title="About">
+        <router-link
+          to="/about"
+          class="text-xl"
+          title="About"
+          aria-label="Learn more about Exerp Weather"
+        >
           <i class="fa fa-info-circle"></i>
         </router-link>
         <button
           @click="toggleDarkMode"
           class="text-xl"
           title="Toggle Dark Mode"
+          aria-label="Toggle Dark Mode"
+          aria-pressed="false"
         >
-          <i :class="darkMode ? 'fa fa-sun' : 'fa fa-moon'"></i>
+          <i
+            :class="darkMode ? 'fa fa-sun' : 'fa fa-moon'"
+            aria-hidden="true"
+          ></i>
         </button>
       </div>
     </nav>

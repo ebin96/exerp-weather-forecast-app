@@ -1,10 +1,12 @@
 <template>
-  <div class="weather-container" :class="weatherBackgroundClass()">
-    <h3 class="weather-title">
-      <h3 class="weather-title">
-        {{ locationName || "No Location Selected" }}
-      </h3>
-    </h3>
+  <section
+    class="weather-container"
+    :class="weatherBackgroundClass()"
+    aria-live="polite"
+  >
+    <header class="weather-title">
+      <h3>{{ locationName || "No Location Selected" }}</h3>
+    </header>
 
     <div class="weather-info">
       <div class="weather-detail">
@@ -60,7 +62,6 @@
           <span v-else-if="forecastData?.current_weather?.weathercode === 2"
             >Partly cloudy</span
           >
-
           <span v-else-if="forecastData?.current_weather?.weathercode === 3"
             >Rainy</span
           >
@@ -73,7 +74,7 @@
         <p>{{ formattedTime() }}</p>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts" src="./weather-forecast.component.ts"></script>
@@ -132,5 +133,29 @@
   .weather-info {
     @apply grid-cols-2;
   }
+}
+
+/* Accessibility */
+.clear::before,
+.cloudy::before,
+.rainy::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.clear::before {
+  content: "Clear sky";
+}
+
+.cloudy::before {
+  content: "Partly cloudy";
+}
+
+.rainy::before {
+  content: "Rainy";
 }
 </style>
