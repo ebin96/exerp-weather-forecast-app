@@ -1,31 +1,31 @@
 <template>
   <div>
     <h3>Type a city name to search</h3>
-    <GMapAutocomplete @place_changed="placeChanged" class="gmap-autocompolete"/>
+    <GMapAutocomplete @place_changed="placeChanged" class="gmap-autocomplete" />
 
-    <div>You can also click a location on the map to view the weather forecast</div>
+    <div>
+      You can also click a location on the map to view the weather forecast
+    </div>
     <!-- TODO add click event -->
     <GMapMap
-      v-if="selectedPlace"
       class="gmap-class"
-      :center="selectedPlace"
-      :zoom="7"
+      :center="selectedPlace || { lat: 0, lng: 0 }"
+      :zoom="selectedPlace ? 7 : 2"
       map-type-id="roadmap"
       ref="gmap"
-    >
-    </GMapMap>
+      @click="handleMapClick($event)"
+    ></GMapMap>
   </div>
 </template>
 
 <script lang="ts" src="./search-city.component.ts"></script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .gmap-class {
   height: 500px;
   width: 100%;
 }
-.gmap-autocompolete {
+.gmap-autocomplete {
   width: 250px;
   margin: 10px auto;
 }
@@ -67,11 +67,5 @@ a {
   border-top: 1px solid #e6e6e6;
   font-size: 11px;
   color: #515151;
-}
-@tailwind components;
-@layer components {
-  .pac-target-input {
-    @apply w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-primary-100 focus:border-primary-300;
-  }
 }
 </style>
