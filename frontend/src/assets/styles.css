@@ -61,4 +61,28 @@
       @apply text-white;
     }
   }
+
+  /* Accessibility */
+  .clear::before,
+  .cloudy::before,
+  .rainy::before,
+  .snow::before {
+    @apply absolute w-px h-px overflow-hidden bg-transparent;
+  }
+
+  .clear::before {
+    content: "Clear sky";
+  }
+
+  .cloudy::before {
+    content: "Partly cloudy";
+  }
+
+  .rainy::before {
+    content: "Rainy";
+  }
+
+  .snow::before {
+    content: "Snow";
+  }
 }

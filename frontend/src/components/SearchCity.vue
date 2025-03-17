@@ -1,8 +1,8 @@
 <template>
   <div class="search-city">
     <h3 class="info-text">
-      <i class="fas fa-info-circle info-icon"></i> Enter a city name or click on
-      the map to view the weather forecast.
+      <i class="fas fa-angle-double-right info-icon"></i> Enter a city name or
+      click on the map to view the weather forecast.
     </h3>
     <GMapAutocomplete
       @place_changed="placeChanged"

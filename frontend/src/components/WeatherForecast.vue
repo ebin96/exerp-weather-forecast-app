@@ -98,30 +98,6 @@
   @apply mx-auto my-4 p-6 rounded-xl bg-pale-gray shadow-md transition-all duration-1000 ease-in-out;
 }
 
-.default {
-  @apply bg-gradient-to-b from-blue-200 to-blue-500;
-}
-
-.clear {
-  @apply bg-cover bg-center;
-  background-image: url("/src/assets/clear-sky.jpg");
-}
-
-.cloudy {
-  @apply bg-cover bg-center;
-  background-image: url("/src/assets/cloudy.jpg");
-}
-
-.rainy {
-  @apply bg-cover bg-center;
-  background-image: url("/src/assets/rainy.jpg");
-}
-
-.snow {
-  @apply bg-cover bg-center;
-  background-image: url("/src/assets/snow.jpg");
-}
-
 .weather-title {
   @apply text-2xl text-center mb-5 font-bold text-medium-gray;
 }
@@ -154,34 +130,36 @@
   }
 }
 
-/* Accessibility */
-.clear::before,
-.cloudy::before,
-.rainy::before {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  background-color: transparent;
+.default {
+  @apply bg-gradient-to-b from-blue-200 to-blue-500;
 }
 
-.clear::before {
-  content: "Clear sky";
+.clear {
+  @apply bg-cover bg-center;
+  background-image: url("/src/assets/clear-sky.jpg");
 }
 
-.cloudy::before {
-  content: "Partly cloudy";
+.cloudy {
+  @apply bg-cover bg-center;
+  background-image: url("/src/assets/cloudy.jpg");
 }
 
-.rainy::before {
-  content: "Rainy";
+.rainy {
+  @apply bg-cover bg-center;
+  background-image: url("/src/assets/rainy.jpg");
+}
+
+.snow {
+  @apply bg-cover bg-center;
+  background-image: url("/src/assets/snow.jpg");
 }
 
 .loading-spinner {
-  @apply inline-block w-6 h-6 border-2 border-gray-300 rounded-full;
+  @apply inline-block border-2 border-gray-300 rounded-full animate-spin;
   border-top-color: theme("colors.highlight-blue");
-  animation: spin 1.5s linear infinite;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
 }
 
 @keyframes spin {

@@ -19,6 +19,11 @@ module.exports = {
       height: {
         128: "32rem",
       },
+      screens: {
+        "min-h-700": { raw: "(min-height: 700px)" },
+        "min-h-800": { raw: "(min-height: 800px)" },
+        "max-w-600": { raw: "(max-width: 600px)" },
+      },
     },
   },
   plugins: [],

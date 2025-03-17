@@ -63,11 +63,9 @@
 <style scoped>
 .about {
   @apply px-20 py-16 bg-blue-100 rounded-xl shadow-lg max-w-2xl mx-auto text-gray-800;
-}
 
-@media (max-width: 600px) {
-  .about {
-    @apply px-4 py-5;
-  }
+  @apply max-w-600:px-4 py-6;
+  @apply min-h-700:py-28;
+  @apply min-h-800:py-32;
 }
 </style>
