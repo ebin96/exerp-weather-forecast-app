@@ -5,7 +5,8 @@
     aria-live="polite"
   >
     <header class="weather-title">
-      <h3 data-test-id="location-name-display">
+      <span v-if="isLoading" class="loading-spinner"></span>
+      <h3 v-else data-test-id="location-name-display">
         {{ locationName || "No Location Selected" }}
       </h3>
     </header>
@@ -14,59 +15,77 @@
       <div class="weather-detail">
         <h4>Current Temperature</h4>
         <p>
-          {{
-            forecastData?.current_weather?.temperature !== undefined
-              ? forecastData?.current_weather?.temperature + "°C"
-              : "No Data"
-          }}
+          <span v-if="isLoading" class="loading-spinner"></span>
+          <span v-else>
+            {{
+              forecastData?.current_weather?.temperature !== undefined
+                ? forecastData?.current_weather?.temperature + "°C"
+                : "No Data"
+            }}
+          </span>
         </p>
       </div>
 
       <div class="weather-detail">
         <h4>Wind Speed</h4>
         <p>
-          {{
-            forecastData?.current_weather?.windspeed !== undefined
-              ? forecastData?.current_weather?.windspeed + " km/h"
-              : "No Data"
-          }}
+          <span v-if="isLoading" class="loading-spinner"></span>
+          <span v-else>
+            {{
+              forecastData?.current_weather?.windspeed !== undefined
+                ? forecastData?.current_weather?.windspeed + " km/h"
+                : "No Data"
+            }}
+          </span>
         </p>
       </div>
 
       <div class="weather-detail">
         <h4>Wind Direction</h4>
         <p>
-          {{
-            forecastData?.current_weather?.winddirection !== undefined
-              ? forecastData?.current_weather?.winddirection + "°"
-              : "No Data"
-          }}
+          <span v-if="isLoading" class="loading-spinner"></span>
+          <span v-else>
+            {{
+              forecastData?.current_weather?.winddirection !== undefined
+                ? forecastData?.current_weather?.winddirection + "°"
+                : "No Data"
+            }}
+          </span>
         </p>
       </div>
 
       <div class="weather-detail">
         <h4>Elevation</h4>
         <p>
-          {{
-            forecastData?.elevation !== undefined
-              ? forecastData?.elevation + " meters"
-              : "No Data"
-          }}
+          <span v-if="isLoading" class="loading-spinner"></span>
+          <span v-else>
+            {{
+              forecastData?.elevation !== undefined
+                ? forecastData?.elevation + " meters"
+                : "No Data"
+            }}
+          </span>
         </p>
       </div>
 
       <div class="weather-detail">
         <h4>Current Weather</h4>
         <p>
-          <span>{{
-            getWeatherDescription(forecastData?.current_weather?.weathercode)
-          }}</span>
+          <span v-if="isLoading" class="loading-spinner"></span>
+          <span v-else>
+            <span>{{
+              getWeatherDescription(forecastData?.current_weather?.weathercode)
+            }}</span>
+          </span>
         </p>
       </div>
 
       <div class="weather-detail">
         <h4>Time of Report</h4>
-        <p>{{ formattedTime() }}</p>
+        <p>
+          <span v-if="isLoading" class="loading-spinner"></span>
+          <span v-else>{{ formattedTime() }}</span>
+        </p>
       </div>
     </div>
   </section>
@@ -104,7 +123,7 @@
 }
 
 .weather-title {
-  @apply text-2xl text-center mb-5 font-bold;
+  @apply text-2xl text-center mb-5 font-bold text-medium-gray;
 }
 
 .weather-info {
@@ -157,5 +176,20 @@
 
 .rainy::before {
   content: "Rainy";
+}
+
+.loading-spinner {
+  @apply inline-block w-6 h-6 border-2 border-gray-300 rounded-full;
+  border-top-color: theme("colors.highlight-blue");
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>

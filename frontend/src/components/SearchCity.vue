@@ -1,6 +1,9 @@
 <template>
   <div class="search-city">
-    <h3>Enter a city name or click on the map to view the weather forecast.</h3>
+    <h3 class="info-text">
+      <i class="fas fa-info-circle info-icon"></i> Enter a city name or click on
+      the map to view the weather forecast.
+    </h3>
     <GMapAutocomplete
       @place_changed="placeChanged"
       class="gmap-autocomplete"
@@ -41,8 +44,12 @@
   @apply h-128 w-full;
 }
 
-.gmap-autocomplete {
-  @apply w-64 mx-auto my-4;
+.info-text {
+  @apply text-medium-gray;
+}
+
+.info-icon {
+  @apply text-medium-gray  mr-1;
 }
 
 .location-error {

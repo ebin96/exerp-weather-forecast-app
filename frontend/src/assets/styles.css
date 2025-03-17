@@ -4,12 +4,12 @@
 
 @layer components {
   .app-content {
-    @apply font-sans text-center text-dark-gray p-12 bg-gradient-to-r from-white to-pale-gray;
+    @apply font-sans text-center text-medium-gray p-12 bg-gradient-to-r from-white to-pale-gray;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
     .gmap-autocomplete {
-      @apply w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-xl focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300;
+      @apply w-full mx-auto my-4 px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-xl focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300;
     }
 
     .vue-map {
@@ -53,6 +53,11 @@
     .about .content-details li,
     .about .additional-info p,
     .about h3 {
+      @apply text-white;
+    }
+
+    .info-text,
+    .info-icon {
       @apply text-white;
     }
   }

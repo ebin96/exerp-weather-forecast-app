@@ -29,6 +29,7 @@ export interface ForecastModel {
     selectedPlace: Object as () => { lat: number; lng: number },
     locationName: String,
     weatherDescriptions: Object,
+    isLoading: Boolean,
   },
 })
 export default class WeatherForecast extends Vue {
@@ -37,7 +38,7 @@ export default class WeatherForecast extends Vue {
 
   selectedPlace!: { lat: number; lng: number };
   locationName!: string;
-
+  isLoading = false; // Initial loading state
   weatherDescriptions: Record<number, string> = {
     0: "Clear sky",
     1: "Mainly clear",
@@ -77,8 +78,9 @@ export default class WeatherForecast extends Vue {
   error: ErrorModel | null = null;
   forecastData: ForecastModel | null = null;
 
-  @Watch("selectedPlace", { deep: true, immediate: true })
+  @Watch("selectedPlace", { deep: true, immediate: false })
   async onSelectedPlaceChanged() {
+    this.isLoading = true; // Set the loading state to true
     if (
       this.selectedPlace &&
       this.selectedPlace.lat &&
@@ -91,6 +93,7 @@ export default class WeatherForecast extends Vue {
         );
         this.forecastData = res;
         this.error = null; // Reset any previous errors
+        this.isLoading = false; // Reset loading state
       } catch (err: any) {
         this.forecastData = null; // Clear forecast data on error
         this.error = err; // Assign the error to display to the user
