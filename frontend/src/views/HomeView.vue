@@ -2,7 +2,7 @@
   <div class="home" :class="{ 'no-forecast-display': !locationName }">
     <transition>
       <WeatherForecast
-        v-if="locationName"
+        v-show="locationName"
         :selectedPlace="selectedPlace"
         :locationName="locationName"
       />
