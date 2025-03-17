@@ -1,7 +1,7 @@
 describe("Weather Location Search", () => {
   it("Visits the homepage, types a location, and checks if the location is displayed correctly", () => {
     // Visit the homepage
-    cy.visit("http://localhost:8080");
+    cy.visit("/");
 
     // Define the user input
     const typedLocation = "London";
@@ -21,7 +21,7 @@ describe("Weather Location Search", () => {
 
   it("Visits the homepage, types an invalid location, presses Enter, and checks for an error message", () => {
     // Visit the homepage
-    cy.visit("http://localhost:8080");
+    cy.visit("/");
 
     // Define the user input
     const typedLocation = "InvalidLocation";
