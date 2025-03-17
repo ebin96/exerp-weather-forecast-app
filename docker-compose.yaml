@@ -1,0 +1,37 @@
+version: "3.2"
+
+services:
+  weather-forecast-frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../Dockerfile
+    working_dir: /frontend
+    volumes:
+      - "./:/frontend"
+      - /frontend/node_modules
+    ports:
+      - "8080:8080"
+    command: ["yarn", "serve", "--port", "8080"]
+
+  weather-forecast-backend:
+    build:
+      context: ./backend
+      dockerfile: ../Dockerfile
+    working_dir: /backend
+    volumes:
+      - "./:/backend"
+      - /backend/node_modules
+    ports:
+      - "3000:3000"
+    command: ["yarn", "serve", "--port", "3000"]
+
+  cypress:
+    image: cypress/included:14.2.0
+    depends_on:
+      - weather-forecast-frontend
+      - weather-forecast-backend
+    working_dir: /frontend
+    volumes:
+      - "./frontend:/frontend"
+    network_mode: "host"
+    command: ["cypress", "run"]
