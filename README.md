@@ -14,6 +14,11 @@
     yarn
     yarn serve
 
+## Running the Application in Docker
+
+    docker-compose up
+    docker-compose build
+
 ## TODO:
 
 - Please *copy* the project into your own github account and work on it there.
