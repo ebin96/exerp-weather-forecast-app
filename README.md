@@ -1,6 +1,6 @@
 # Exerp Test
 
-## Installation
+## Running the Application in Local
 
 ### backend
 
@@ -16,8 +16,8 @@
 
 ## Running the Application in Docker
 
-    docker-compose up
     docker-compose build
+    docker-compose up
 
 ## TODO:
 
