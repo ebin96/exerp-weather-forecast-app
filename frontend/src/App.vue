@@ -56,6 +56,14 @@ export default {
       this.darkMode = !this.darkMode;
       // Save dark mode state in localStorage
       localStorage.setItem("darkMode", this.darkMode ? "enabled" : "disabled");
+
+      const darkModeButton = document.querySelector(
+        '[data-test-id="dark-mode-button"]'
+      );
+      darkModeButton?.setAttribute(
+        "aria-pressed",
+        this.isDarkMode ? "true" : "false"
+      );
     },
   },
   mounted() {

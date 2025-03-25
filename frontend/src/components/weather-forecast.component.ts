@@ -28,8 +28,6 @@ export interface ForecastModel {
   props: {
     selectedPlace: Object as () => { lat: number; lng: number },
     locationName: String,
-    weatherDescriptions: Object,
-    isLoading: Boolean,
   },
 })
 export default class WeatherForecast extends Vue {

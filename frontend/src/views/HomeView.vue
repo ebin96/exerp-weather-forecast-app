@@ -19,7 +19,7 @@
 <style scoped>
 .v-enter-active,
 .v-leave-active {
-  @apply transition-opacity duration-500 ease-in;
+  @apply transition-opacity duration-1000 ease-in;
 }
 
 .v-enter-from,
